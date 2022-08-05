@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { fetchToken } from '../helpers/fetchAPI';
 
 export default class Login extends Component {
@@ -66,6 +66,14 @@ export default class Login extends Component {
           </button>
           { redirect && <Redirect to="/game" /> }
         </form>
+        <Link to="/config">
+          <button
+            type="button"
+            data-testid="btn-settings"
+          >
+            Configurações
+          </button>
+        </Link>
       </div>
     );
   }
