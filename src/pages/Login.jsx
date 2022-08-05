@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { fetchToken } from '../helpers/fetchAPI';
 
 export default class Login extends Component {
   constructor() {
@@ -28,7 +29,9 @@ export default class Login extends Component {
     }, () => this.setState({ disable: this.valButton() }));
   }
 
-  handleClick = () => {
+  handleClick = async () => {
+    const token = await fetchToken();
+    localStorage.setItem('token', token);
     this.setState({
       redirect: true,
     });
