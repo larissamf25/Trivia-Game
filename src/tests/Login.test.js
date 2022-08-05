@@ -30,6 +30,7 @@ describe('Testando pagina Login', () => {
     userEvent.type(user, 'alguem');
     
     expect(playBtn).toBeEnabled();
+    expect(email).toHaveTextContent('alguem@trybe.com');
     
     userEvent.click(playBtn);
     
