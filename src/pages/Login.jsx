@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { fetchToken } from '../helpers/fetchAPI';
+import { actionPlaySave } from '../redux/actions';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -31,6 +33,9 @@ export default class Login extends Component {
   }
 
   handleClick = async () => {
+    const { player, email } = this.state;
+    const { playerDispatch } = this.props;
+    playerDispatch(player, email);
     const token = await fetchToken();
     localStorage.setItem('token', token);
     this.setState({
@@ -86,4 +91,11 @@ Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  playerDispatch: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  playerDispatch: (playerN, playerE) => dispatch(actionPlaySave(playerN, playerE)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);

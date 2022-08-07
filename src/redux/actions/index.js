@@ -1,12 +1,16 @@
 import { USER_LOGIN,
-  PLAY,
+  PLAYSAVE,
   receiveFailure,
   requestAPI,
   receiveSuccess } from './actionstypes';
 
 export const actionLogin = (value) => ({ type: USER_LOGIN, value });
 
-export const actionPlay = (value) => ({ type: PLAY, value });
+export const actionPlaySave = (playerName, playerEmail) => ({
+  type: PLAYSAVE,
+  playerName,
+  playerEmail,
+});
 
 export const actionRequest = () => ({ type: requestAPI });
 
