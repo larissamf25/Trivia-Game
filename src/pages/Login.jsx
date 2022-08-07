@@ -4,22 +4,23 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { fetchToken } from '../helpers/fetchAPI';
 import { actionPlaySave } from '../redux/actions';
+import funcTrivia from '../helpers/funcTrivia';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
       disable: true,
-      player: '',
+      name: '',
       email: '',
       redirect: false,
     };
   }
 
   valButton = () => {
-    const { player, email } = this.state;
+    const { name, email } = this.state;
     let validated = true;
-    if (player.length > 0 && email.length > 0) {
+    if (name.length > 0 && email.length > 0) {
       validated = false;
     }
     return validated;
@@ -29,22 +30,25 @@ class Login extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    }, () => this.setState({ disable: this.valButton() }));
+    },
+    () => this.setState({ disable: this.valButton() }));
   }
 
   handleClick = async () => {
-    const { player, email } = this.state;
-    const { playerDispatch } = this.props;
-    playerDispatch(player, email);
-    const token = await fetchToken();
-    localStorage.setItem('token', token);
+    const { name, email } = this.state;
+    const { playerDispatch, apiDispatch } = this.props;
+    const tokey = await fetchToken();
+    localStorage.setItem('token', tokey.token);
+    localStorage.setItem('back', tokey.response_code);
+    playerDispatch(name, email);
+    apiDispatch();
     this.setState({
       redirect: true,
     });
   }
 
   render() {
-    const { disable, redirect } = this.state;
+    const { disable, redirect, name, email } = this.state;
     const { history } = this.props;
     return (
       <div>
@@ -52,14 +56,16 @@ class Login extends Component {
           <input
             type="text"
             data-testid="input-player-name"
-            name="player"
+            name="name"
             placeholder="Digite seu nome"
+            value={ name }
             onChange={ this.handleChange }
           />
           <input
             type="email"
             data-testid="input-gravatar-email"
             name="email"
+            value={ email }
             placeholder="Digite seu e-mail"
             onChange={ this.handleChange }
           />
@@ -92,10 +98,12 @@ Login.propTypes = {
     push: PropTypes.func,
   }).isRequired,
   playerDispatch: PropTypes.func.isRequired,
+  apiDispatch: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   playerDispatch: (playerN, playerE) => dispatch(actionPlaySave(playerN, playerE)),
+  apiDispatch: () => dispatch(funcTrivia()),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
