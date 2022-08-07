@@ -1,10 +1,9 @@
-import { USER_LOGIN,
+import {
   PLAYSAVE,
   receiveFailure,
   requestAPI,
-  receiveSuccess } from './actionstypes';
-
-export const actionLogin = (value) => ({ type: USER_LOGIN, value });
+  receiveSuccess,
+} from './actionstypes';
 
 export const actionPlaySave = (playerName, playerEmail) => ({
   type: PLAYSAVE,
@@ -14,6 +13,9 @@ export const actionPlaySave = (playerName, playerEmail) => ({
 
 export const actionRequest = () => ({ type: requestAPI });
 
-export const actionGetToken = (token) => ({ type: receiveSuccess, token });
+export const actionReciveTrivia = (resultApi) => ({
+  type: receiveSuccess,
+  resultApi,
+});
 
 export const actionFailure = (error) => ({ type: receiveFailure, error });
