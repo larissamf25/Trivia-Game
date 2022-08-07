@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { fetchToken } from '../helpers/fetchAPI';
 
 export default class Login extends Component {
@@ -39,6 +40,7 @@ export default class Login extends Component {
 
   render() {
     const { disable, redirect } = this.state;
+    const { history } = this.props;
     return (
       <div>
         <form>
@@ -66,15 +68,22 @@ export default class Login extends Component {
           </button>
           { redirect && <Redirect to="/game" /> }
         </form>
-        <Link to="/config">
-          <button
-            type="button"
-            data-testid="btn-settings"
-          >
-            Configurações
-          </button>
-        </Link>
+
+        <button
+          type="button"
+          data-testid="btn-settings"
+          onClick={ () => history.push('/config') }
+        >
+          Configurações
+        </button>
+
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
