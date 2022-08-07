@@ -1,5 +1,5 @@
 export const USER_LOGIN = 'USER_LOGIN';
-export const PLAY = 'PLAY';
+export const PLAYSAVE = 'PLAYSAVE';
 
 export const requestAPI = 'requestAPI';
 export const receiveSuccess = 'receiveSuccess';
