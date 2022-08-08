@@ -4,3 +4,4 @@ export const PLAYSAVE = 'PLAYSAVE';
 export const requestAPI = 'requestAPI';
 export const receiveSuccess = 'receiveSuccess';
 export const receiveFailure = 'receiveFailure';
+export const sumScore = 'sumScore';

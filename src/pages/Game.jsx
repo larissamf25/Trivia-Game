@@ -52,7 +52,7 @@ Game.propTypes = {
   codeBack: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = ({ play: { load, apiTrivia, codeBack } }) => (
+const mapStateToProps = ({ player: { load, apiTrivia, codeBack } }) => (
   { load, apiTrivia, codeBack }
 );
 
