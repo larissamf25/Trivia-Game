@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
 import { connect } from 'react-redux';
-import { actionSumScore } from '../redux/actions/index';
+import { actionNextQuestion, actionSumScore } from '../redux/actions/index';
 
 class Quest extends Component {
   constructor() {
@@ -65,7 +65,7 @@ class Quest extends Component {
   }
 
   render() {
-    const { quest } = this.props;
+    const { quest, dispatch } = this.props;
     const { category, question } = quest;
     const { timer, answers, color, disable } = this.state;
     const resp = quest.correct_answer;
@@ -108,6 +108,16 @@ class Quest extends Component {
           { btnQuest }
         </span>
         <span>{timer}</span>
+        { disable
+          && (
+            <button
+              type="button"
+              data-testid="btn-next"
+              onClick={ () => dispatch(actionNextQuestion()) }
+            >
+              Next
+            </button>
+          )}
       </div>
     );
   }
@@ -120,6 +130,7 @@ const mapDispatchToProps = (dispatch) => ({
 Quest.propTypes = {
   dispatchScore: PropTypes.func.isRequired,
   quest: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Quest);

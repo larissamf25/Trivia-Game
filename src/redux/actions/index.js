@@ -4,6 +4,7 @@ import {
   requestAPI,
   receiveSuccess,
   sumScore,
+  nextQuestion,
 } from './actionstypes';
 
 export const actionPlaySave = (playerName, playerEmail) => ({
@@ -22,3 +23,5 @@ export const actionReciveTrivia = (resultApi) => ({
 export const actionFailure = (error) => ({ type: receiveFailure, error });
 
 export const actionSumScore = (value) => ({ type: sumScore, value });
+
+export const actionNextQuestion = () => ({ type: nextQuestion });

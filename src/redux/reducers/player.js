@@ -4,6 +4,7 @@ import {
   requestAPI,
   receiveSuccess,
   sumScore,
+  nextQuestion,
 } from '../actions/actionstypes';
 
 const INITIAL_STATE = {
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
   apiTrivia: [],
   load: false,
   codeBack: 0,
+  questionNumber: 0,
 };
 
 const player = (state = INITIAL_STATE, action) => {
@@ -47,6 +49,11 @@ const player = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       score: state.score + action.value,
+    };
+  case nextQuestion:
+    return {
+      ...state,
+      questionNumber: state.questionNumber + 1,
     };
   default:
     return state;

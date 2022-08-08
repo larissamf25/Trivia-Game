@@ -21,7 +21,7 @@ class Game extends Component {
   }
 
   render() {
-    const { load, apiTrivia } = this.props;
+    const { load, apiTrivia, questionNumber } = this.props;
     return (
       <div>
         {
@@ -33,7 +33,7 @@ class Game extends Component {
               <div>
                 {apiTrivia.map((qtn, index) => (
                   <Quest key={ index } quest={ qtn } />
-                ))[0]}
+                ))[questionNumber]}
               </div>
             </div>
           )
@@ -50,10 +50,11 @@ Game.propTypes = {
   }).isRequired,
   load: PropTypes.bool.isRequired,
   codeBack: PropTypes.number.isRequired,
+  questionNumber: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = ({ player: { load, apiTrivia, codeBack } }) => (
-  { load, apiTrivia, codeBack }
+const mapStateToProps = ({ player: { load, apiTrivia, codeBack, questionNumber } }) => (
+  { load, apiTrivia, codeBack, questionNumber }
 );
 
 export default connect(mapStateToProps)(Game);
