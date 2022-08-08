@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import Load from '../components/Load';
 import Quest from '../components/Quest';
@@ -22,6 +23,9 @@ class Game extends Component {
 
   render() {
     const { load, apiTrivia, questionNumber } = this.props;
+    if (questionNumber === Number('5')) {
+      return <Redirect to="/feedback" />;
+    }
     return (
       <div>
         {

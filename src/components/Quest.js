@@ -64,8 +64,16 @@ class Quest extends Component {
     });
   }
 
+  handleNext = () => {
+    const { dispatchNextQuestion } = this.props;
+    // if (questionNumber === Number('4')) {
+    //   dispatchFeedback();
+    // }
+    dispatchNextQuestion();
+  }
+
   render() {
-    const { quest, dispatch } = this.props;
+    const { quest } = this.props;
     const { category, question } = quest;
     const { timer, answers, color, disable } = this.state;
     const resp = quest.correct_answer;
@@ -113,7 +121,7 @@ class Quest extends Component {
             <button
               type="button"
               data-testid="btn-next"
-              onClick={ () => dispatch(actionNextQuestion()) }
+              onClick={ this.handleNext }
             >
               Next
             </button>
@@ -123,14 +131,19 @@ class Quest extends Component {
   }
 }
 
+// const mapStateToProps = ({ player: { questionNumber } }) => ({
+//   questionNumber,
+// });
+
 const mapDispatchToProps = (dispatch) => ({
   dispatchScore: (value) => dispatch(actionSumScore(value)),
+  dispatchNextQuestion: () => dispatch(actionNextQuestion()),
 });
 
 Quest.propTypes = {
   dispatchScore: PropTypes.func.isRequired,
   quest: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.isRequired,
+  dispatchNextQuestion: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Quest);
