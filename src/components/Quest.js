@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../App.css';
 
 export default class Quest extends Component {
   constructor() {
@@ -8,6 +9,7 @@ export default class Quest extends Component {
     this.state = {
       answers: [],
       timer: 30,
+      color: false,
     };
   }
 
@@ -32,10 +34,16 @@ export default class Quest extends Component {
     this.setState({ answers: shortAnsw });
   }
 
+  changeColor = () => {
+    this.setState({
+      color: true,
+    });
+  }
+
   render() {
     const { quest } = this.props;
     const { category, question } = quest;
-    const { timer, answers } = this.state;
+    const { timer, answers, color } = this.state;
     const resp = quest.correct_answer;
 
     const btnQuest = answers.map((elm, i) => {
@@ -45,6 +53,8 @@ export default class Quest extends Component {
             type="button"
             key={ elm }
             data-testid="correct-answer"
+            onClick={ this.changeColor }
+            className={ color ? 'right' : '' }
           >
             {elm}
           </button>
@@ -55,6 +65,8 @@ export default class Quest extends Component {
           type="button"
           key={ elm }
           data-testid={ `wrong-answer-${i}` }
+          onClick={ this.changeColor }
+          className={ color ? 'false' : '' }
         >
           {elm}
         </button>
