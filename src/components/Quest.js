@@ -74,5 +74,5 @@ export default class Quest extends Component {
 }
 
 Quest.propTypes = {
-  quest: PropTypes.object.isRequired,
+  quest: PropTypes.string.isRequired,
 };
