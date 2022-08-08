@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
+import { connect } from 'react-redux';
+import { actionSumScore } from '../redux/actions/index';
 
-export default class Quest extends Component {
+class Quest extends Component {
   constructor() {
     super();
 
@@ -27,17 +29,7 @@ export default class Quest extends Component {
         color: (timer === 1),
       }), Number('1000'));
     }
-    // if (timer === 0) {
-    //   this.disableBtn();
-    // }
   }
-
-  // disableBtn = () => {
-  //   this.setState({
-  //     disable: true,
-  //     color: true,
-  //   });
-  // }
 
   renderAnswers = () => {
     const { quest } = this.props;
@@ -47,7 +39,25 @@ export default class Quest extends Component {
     this.setState({ answers: shortAnsw });
   }
 
-  changeColor = () => {
+    funcDifficulty = () => {
+      const { quest: { difficulty } } = this.props;
+      if (difficulty === 'easy') {
+        return 1;
+      } if (difficulty === 'medium') {
+        return 2;
+      }
+      return Number('3');
+    }
+
+  handleClick = ({ target }) => {
+    const { name } = target;
+    if (name === 'correct-answer') {
+      const { dispatchScore } = this.props;
+      const { timer } = this.state;
+      const difficulty = this.funcDifficulty();
+      const result = Number('10') + (timer * difficulty);
+      dispatchScore(result);
+    }
     this.setState({
       color: true,
       disable: true,
@@ -66,8 +76,9 @@ export default class Quest extends Component {
           <button
             type="button"
             key={ elm }
+            name="correct-answer"
             data-testid="correct-answer"
-            onClick={ this.changeColor }
+            onClick={ this.handleClick }
             className={ color ? 'right' : '' }
             disabled={ disable }
           >
@@ -79,8 +90,9 @@ export default class Quest extends Component {
         <button
           type="button"
           key={ elm }
+          name="wrong-answer"
           data-testid={ `wrong-answer-${i}` }
-          onClick={ this.changeColor }
+          onClick={ this.handleClick }
           className={ color ? 'false' : '' }
           disabled={ disable }
         >
@@ -101,6 +113,13 @@ export default class Quest extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  dispatchScore: (value) => dispatch(actionSumScore(value)),
+});
+
 Quest.propTypes = {
+  dispatchScore: PropTypes.func.isRequired,
   quest: PropTypes.string.isRequired,
 };
+
+export default connect(null, mapDispatchToProps)(Quest);

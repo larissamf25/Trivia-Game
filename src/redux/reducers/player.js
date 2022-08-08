@@ -3,6 +3,7 @@ import {
   receiveFailure,
   requestAPI,
   receiveSuccess,
+  sumScore,
 } from '../actions/actionstypes';
 
 const INITIAL_STATE = {
@@ -15,7 +16,7 @@ const INITIAL_STATE = {
   codeBack: 0,
 };
 
-const play = (state = INITIAL_STATE, action) => {
+const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case PLAYSAVE:
     return {
@@ -42,9 +43,14 @@ const play = (state = INITIAL_STATE, action) => {
       load: false,
       error: action.error,
     };
+  case sumScore:
+    return {
+      ...state,
+      score: state.score + action.value,
+    };
   default:
     return state;
   }
 };
 
-export default play;
+export default player;
