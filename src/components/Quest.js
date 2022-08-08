@@ -10,6 +10,7 @@ export default class Quest extends Component {
       answers: [],
       timer: 30,
       color: false,
+      disable: false,
     };
   }
 
@@ -22,9 +23,21 @@ export default class Quest extends Component {
     if (timer > 0) {
       setTimeout(() => this.setState({
         timer: timer - 1,
+        disable: (timer === 1),
+        color: (timer === 1),
       }), Number('1000'));
     }
+    // if (timer === 0) {
+    //   this.disableBtn();
+    // }
   }
+
+  // disableBtn = () => {
+  //   this.setState({
+  //     disable: true,
+  //     color: true,
+  //   });
+  // }
 
   renderAnswers = () => {
     const { quest } = this.props;
@@ -37,13 +50,14 @@ export default class Quest extends Component {
   changeColor = () => {
     this.setState({
       color: true,
+      disable: true,
     });
   }
 
   render() {
     const { quest } = this.props;
     const { category, question } = quest;
-    const { timer, answers, color } = this.state;
+    const { timer, answers, color, disable } = this.state;
     const resp = quest.correct_answer;
 
     const btnQuest = answers.map((elm, i) => {
@@ -55,6 +69,7 @@ export default class Quest extends Component {
             data-testid="correct-answer"
             onClick={ this.changeColor }
             className={ color ? 'right' : '' }
+            disabled={ disable }
           >
             {elm}
           </button>
@@ -67,6 +82,7 @@ export default class Quest extends Component {
           data-testid={ `wrong-answer-${i}` }
           onClick={ this.changeColor }
           className={ color ? 'false' : '' }
+          disabled={ disable }
         >
           {elm}
         </button>
