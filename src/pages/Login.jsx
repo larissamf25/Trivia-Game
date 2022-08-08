@@ -39,7 +39,6 @@ class Login extends Component {
     const { playerDispatch, apiDispatch } = this.props;
     const tokey = await fetchToken();
     localStorage.setItem('token', tokey.token);
-    localStorage.setItem('back', tokey.response_code);
     playerDispatch(name, email);
     apiDispatch();
     this.setState({

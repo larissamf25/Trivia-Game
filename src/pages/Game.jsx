@@ -7,8 +7,13 @@ import Quest from '../components/Quest';
 
 class Game extends Component {
   componentDidMount() {
-    const back = localStorage.getItem('back');
-    if (back === Number('3')) {
+    this.backHome();
+  }
+
+  backHome = () => {
+    const { codeBack } = this.props;
+    console.log('back:', codeBack);
+    if (codeBack === Number('3')) {
       const { history } = this.props;
       history.push('/');
       localStorage.removeItem('token');
@@ -28,7 +33,7 @@ class Game extends Component {
               <div>
                 {apiTrivia.map((qtn, index) => (
                   <Quest key={ index } quest={ qtn } />
-                ))}
+                ))[0]}
               </div>
             </div>
           )
@@ -44,8 +49,11 @@ Game.propTypes = {
     push: PropTypes.func,
   }).isRequired,
   load: PropTypes.bool.isRequired,
+  codeBack: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = ({ play: { load, apiTrivia } }) => ({ load, apiTrivia });
+const mapStateToProps = ({ play: { load, apiTrivia, codeBack } }) => (
+  { load, apiTrivia, codeBack }
+);
 
 export default connect(mapStateToProps)(Game);

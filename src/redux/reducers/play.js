@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   error: '',
   apiTrivia: [],
   load: false,
+  codeBack: 0,
 };
 
 const play = (state = INITIAL_STATE, action) => {
@@ -32,7 +33,8 @@ const play = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       load: false,
-      apiTrivia: action.resultApi,
+      apiTrivia: [...action.resultApi.results],
+      codeBack: action.resultApi.response_code,
     };
   case receiveFailure:
     return {
