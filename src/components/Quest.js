@@ -22,15 +22,21 @@ class Quest extends Component {
   }
 
   componentDidUpdate() {
-    const { timer, color } = this.state;
+    const { timer, disable } = this.state;
     if (timer > 0) {
       setTimeout(() => this.setState({
         timer: timer - 1,
-        disable: (timer === 1) || color === true,
-        color: (timer === 1) || color === true,
-        nextBtn: (timer === 1) || color === true,
       }), Number('1000'));
     }
+    if (timer === 0 && !disable) { this.funcSetState(); }
+  }
+
+  funcSetState = () => {
+    this.setState({
+      disable: true,
+      color: true,
+      nextBtn: true,
+    });
   }
 
   renderAnswers = () => {
