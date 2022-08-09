@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   load: false,
   codeBack: 0,
   questionNumber: 0,
-  correctAnswers: 0,
+  assertions: 0,
 };
 
 const player = (state = INITIAL_STATE, action) => {
@@ -50,7 +50,7 @@ const player = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       score: state.score + action.value,
-      correctAnswers: state.correctAnswers + 1,
+      assertions: state.assertions + 1,
     };
   case nextQuestion:
     return {
