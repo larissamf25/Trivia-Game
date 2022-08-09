@@ -8,7 +8,7 @@ import Quest from '../components/Quest';
 
 class Game extends Component {
   componentDidMount() {
-    this.backHome();
+    setTimeout(() => this.backHome(), Number('2000'));
   }
 
   backHome = () => {
