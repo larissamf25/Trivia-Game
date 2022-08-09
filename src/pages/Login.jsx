@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { fetchToken } from '../helpers/fetchAPI';
-import { actionPlaySave } from '../redux/actions';
+import { actionPlaySave, actionResetStats } from '../redux/actions';
 import funcTrivia from '../helpers/funcTrivia';
 
 class Login extends Component {
@@ -15,6 +15,11 @@ class Login extends Component {
       email: '',
       redirect: false,
     };
+  }
+
+  componentDidMount() {
+    const { dispatchResetStats } = this.props;
+    dispatchResetStats();
   }
 
   valButton = () => {
@@ -93,16 +98,18 @@ class Login extends Component {
 }
 
 Login.propTypes = {
+  apiDispatch: PropTypes.func.isRequired,
+  dispatchResetStats: PropTypes.func.isRequired,
   history: PropTypes.shape({
-    push: PropTypes.func,
+    push: PropTypes.func.isRequired,
   }).isRequired,
   playerDispatch: PropTypes.func.isRequired,
-  apiDispatch: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   playerDispatch: (playerN, playerE) => dispatch(actionPlaySave(playerN, playerE)),
   apiDispatch: () => dispatch(funcTrivia()),
+  dispatchResetStats: () => dispatch(actionResetStats()),
 });
 
 export default connect(null, mapDispatchToProps)(Login);

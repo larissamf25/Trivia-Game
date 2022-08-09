@@ -5,6 +5,7 @@ import {
   receiveSuccess,
   sumScore,
   nextQuestion,
+  resetStats,
 } from '../actions/actionstypes';
 
 const INITIAL_STATE = {
@@ -56,6 +57,11 @@ const player = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       questionNumber: state.questionNumber + 1,
+    };
+  case resetStats:
+    return {
+      ...state,
+      ...INITIAL_STATE,
     };
   default:
     return state;

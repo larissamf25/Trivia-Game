@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import md5 from 'crypto-js/md5';
 import Header from '../components/Header';
 import Load from '../components/Load';
 import Quest from '../components/Quest';
@@ -21,9 +22,24 @@ class Game extends Component {
     }
   }
 
+  gravatarImg = (email) => {
+    const hash = md5(email).toString();
+    return `https://www.gravatar.com/avatar/${hash}`;
+  }
+
+  saveScoreLocal = () => {
+    const { name, score } = this.props;
+    const img = this.gravatarImg();
+    const playerObj = { name: [name], score: [score], picture: img };
+    const ranking = (JSON.parse(localStorage.getItem('ranking')))
+      ? JSON.parse(localStorage.getItem('ranking')) : [];
+    localStorage.setItem('ranking', JSON.stringify([...ranking, playerObj]));
+  }
+
   render() {
     const { load, apiTrivia, questionNumber } = this.props;
     if (questionNumber === Number('5')) {
+      this.saveScoreLocal();
       return <Redirect to="/feedback" />;
     }
     return (
@@ -55,10 +71,19 @@ Game.propTypes = {
   load: PropTypes.bool.isRequired,
   codeBack: PropTypes.number.isRequired,
   questionNumber: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ player: { load, apiTrivia, codeBack, questionNumber } }) => (
-  { load, apiTrivia, codeBack, questionNumber }
+const mapStateToProps = ({ player: {
+  load,
+  apiTrivia,
+  codeBack,
+  questionNumber,
+  name,
+  score,
+} }) => (
+  { load, apiTrivia, codeBack, questionNumber, name, score }
 );
 
 export default connect(mapStateToProps)(Game);

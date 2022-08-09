@@ -5,6 +5,7 @@ import {
   receiveSuccess,
   sumScore,
   nextQuestion,
+  resetStats,
 } from './actionstypes';
 
 export const actionPlaySave = (playerName, playerEmail) => ({
@@ -25,3 +26,5 @@ export const actionFailure = (error) => ({ type: receiveFailure, error });
 export const actionSumScore = (value) => ({ type: sumScore, value });
 
 export const actionNextQuestion = () => ({ type: nextQuestion });
+
+export const actionResetStats = () => ({ type: resetStats });

@@ -6,3 +6,4 @@ export const receiveSuccess = 'receiveSuccess';
 export const receiveFailure = 'receiveFailure';
 export const sumScore = 'sumScore';
 export const nextQuestion = 'nextQuestion';
+export const resetStats = 'resetStats';
