@@ -14,7 +14,8 @@ export default class Ranking extends Component {
   }
 
   getRanking = () => {
-    const ranking = (JSON.parse(localStorage.getItem('ranking')));
+    const ranking = (JSON.parse(localStorage.getItem('ranking')))
+      ? (JSON.parse(localStorage.getItem('ranking'))) : [];
     const rankingSort = ranking.sort((ele1, ele2) => ele2.score - ele1.score);
     this.setState({
       ranking: rankingSort,
