@@ -13,6 +13,7 @@ class Quest extends Component {
       timer: 30,
       color: false,
       disable: false,
+      nextBtn: false,
     };
   }
 
@@ -21,12 +22,13 @@ class Quest extends Component {
   }
 
   componentDidUpdate() {
-    const { timer } = this.state;
+    const { timer, color } = this.state;
     if (timer > 0) {
       setTimeout(() => this.setState({
         timer: timer - 1,
-        disable: (timer === 1),
-        color: (timer === 1),
+        disable: (timer === 1) || color === true,
+        color: (timer === 1) || color === true,
+        nextBtn: (timer === 1) || color === true,
       }), Number('1000'));
     }
   }
@@ -61,21 +63,19 @@ class Quest extends Component {
     this.setState({
       color: true,
       disable: true,
+      nextBtn: true,
     });
   }
 
   handleNext = () => {
     const { dispatchNextQuestion } = this.props;
-    // if (questionNumber === Number('4')) {
-    //   dispatchFeedback();
-    // }
     dispatchNextQuestion();
   }
 
   render() {
     const { quest } = this.props;
     const { category, question } = quest;
-    const { timer, answers, color, disable } = this.state;
+    const { timer, answers, color, disable, nextBtn } = this.state;
     const resp = quest.correct_answer;
 
     const btnQuest = answers.map((elm, i) => {
@@ -116,7 +116,7 @@ class Quest extends Component {
           { btnQuest }
         </span>
         <span>{timer}</span>
-        { disable
+        { nextBtn
           && (
             <button
               type="button"
@@ -130,10 +130,6 @@ class Quest extends Component {
     );
   }
 }
-
-// const mapStateToProps = ({ player: { questionNumber } }) => ({
-//   questionNumber,
-// });
 
 const mapDispatchToProps = (dispatch) => ({
   dispatchScore: (value) => dispatch(actionSumScore(value)),
