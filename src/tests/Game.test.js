@@ -9,6 +9,7 @@ const { questionsResponse, invalidTokenQuestionsResponse } = require('../../cypr
 describe('Testando a página Game', () => {
 
   afterEach(() => jest.clearAllMocks());
+  //teste
 
   it('teste se os componentes são renderizados na página', async () => {
     const { history } = renderWithRouterAndRedux(<App />);
