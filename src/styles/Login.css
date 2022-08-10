@@ -1,3 +1,7 @@
+/* stylelint-disable linebreaks */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 body {
   background-attachment: local;
   background-image: url('../imgs/background.jpg');
@@ -37,15 +41,32 @@ body {
   background-color: rgba(238, 238, 238, 0.942);
   border: white 1px solid;
   border-radius: 5px;
+  font-family: "Kanit", sans-serif;
   height: 24px;
   margin-bottom: 10px;
 }
 
-button {
-  background-color: rgba(255, 255, 255, 0.685);
-  border: none;
+.configBtn {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 2px solid rgba(222, 2, 112, 0.597);
   border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.412);
   color: rgb(3, 3, 3);
-  height: 24px;
+  font-family: "Kanit", sans-serif;
+  height: 28px;
   margin-bottom: 10px;
+}
+
+.playBtn {
+  background-color: rgba(255, 255, 255, 0.815);
+  border: 2px solid rgba(222, 2, 112, 0.597);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.412);
+  color: rgb(3, 3, 3);
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  margin-bottom: 10px;
+  width: 98px;
 }

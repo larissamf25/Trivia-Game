@@ -51,9 +51,11 @@ class Game extends Component {
             <div>
               <Header />
               <div>
-                {apiTrivia.map((qtn, index) => (
-                  <Quest key={ index } quest={ qtn } />
-                ))[questionNumber]}
+                <div className="divTrivia">
+                  {apiTrivia.map((qtn, index) => (
+                    <Quest key={ index } quest={ qtn } />
+                  ))[questionNumber]}
+                </div>
               </div>
             </div>
           )

@@ -1,0 +1,35 @@
+/* stylelint-disable linebreaks */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+.divHeader {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-family: "Kanit", sans-serif;
+  height: 80px;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.imgHeader {
+  height: 70px;
+  margin-right: 20px;
+}
+
+.insiderDivHeader {
+  align-items: center;
+  display: flex;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  height: 80px;
+  padding-left: 20px;
+}
+
+.divScore {
+  align-items: center;
+  display: flex;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  gap: 10px;
+}

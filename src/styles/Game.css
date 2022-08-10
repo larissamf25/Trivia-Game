@@ -1,0 +1,59 @@
+/* stylelint-disable linebreaks */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+body {
+  background-attachment: local;
+  background-image: url('../imgs/background.jpg');
+  background-size: cover;
+}
+
+.divTrivia {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: "Kanit", sans-serif;
+  font-size: 30px;
+  height: 600px;
+  justify-content: center;
+}
+
+.divAPI {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 700px;
+}
+
+.divTrivia button {
+  background-color: rgba(255, 255, 255, 0.849);
+  border-radius: 5px;
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  height: 40px;
+  margin: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.divAnswer {
+  align-items: center;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.divQuestion {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category {
+  font-style: italic;
+}

@@ -1,7 +1,14 @@
+/* stylelint-disable linebreaks */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 .right {
+  /* background-color: rgb(6, 240, 15); */
   border: 3px solid rgb(6, 240, 15);
+
 }
 
 .false {
+  /* background-color: red; */
   border: 3px solid red;
 }

@@ -115,12 +115,21 @@ class Quest extends Component {
       );
     });
     return (
-      <div>
-        <p data-testid="question-category">{ category }</p>
-        <p data-testid="question-text">{ question }</p>
-        <span data-testid="answer-options">
-          { btnQuest }
-        </span>
+      <div className="divAPI">
+        <div className="divQuestion">
+          <p
+            className="category"
+            data-testid="question-category"
+          >
+            { category }
+          </p>
+          <p data-testid="question-text">{ question }</p>
+        </div>
+        <div className="divAnswer">
+          <span data-testid="answer-options">
+            { btnQuest }
+          </span>
+        </div>
         <span>{timer}</span>
         { nextBtn
           && (

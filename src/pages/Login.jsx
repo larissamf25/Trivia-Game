@@ -80,6 +80,7 @@ class Login extends Component {
             onChange={ this.handleChange }
           />
           <button
+            className="playBtn"
             type="button"
             data-testid="btn-play"
             disabled={ disable }
@@ -89,6 +90,7 @@ class Login extends Component {
           </button>
           { redirect && <Redirect to="/game" /> }
           <button
+            className="configBtn"
             type="button"
             data-testid="btn-settings"
             onClick={ () => history.push('/config') }

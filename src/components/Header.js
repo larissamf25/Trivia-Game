@@ -12,14 +12,20 @@ class Header extends Component {
     render() {
       const { name, email, score } = this.props;
       return (
-        <div>
-          <img
-            src={ this.gravatarImg(email) }
-            alt="imagem gravatar"
-            data-testid="header-profile-picture"
-          />
-          <span data-testid="header-player-name">{ name }</span>
-          <span data-testid="header-score">{ score }</span>
+        <div className="divHeader">
+          <div className="insiderDivHeader">
+            <img
+              className="imgHeader"
+              src={ this.gravatarImg(email) }
+              alt="imagem gravatar"
+              data-testid="header-profile-picture"
+            />
+            <span data-testid="header-player-name">{ name }</span>
+          </div>
+          <div className="divScore">
+            <p>Pontos: </p>
+            <span data-testid="header-score">{ score }</span>
+          </div>
         </div>
       );
     }
