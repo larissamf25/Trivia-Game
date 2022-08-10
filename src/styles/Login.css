@@ -1,0 +1,51 @@
+body {
+  background-attachment: local;
+  background-image: url('../imgs/background.jpg');
+  background-size: cover;
+}
+
+.login {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  justify-content: center;
+  width: 100%;
+}
+
+.imgTrivia {
+  padding-bottom: 10px;
+  width: 300px;
+}
+
+.loginBox {
+  align-content: center;
+  align-items: center;
+  background-color: rgba(93, 93, 93, 0.246);
+  border: 4px solid rgb(140, 0, 70);
+  border-radius: 15px;
+  box-shadow: 0 0 0.2rem #c04775 , 0 0 0.8rem #8d005c , 0 0 2.8rem #8d005c;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  width: 400px;
+}
+
+.loginBox input {
+  background-color: rgba(238, 238, 238, 0.942);
+  border: white 1px solid;
+  border-radius: 5px;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.685);
+  border: none;
+  border-radius: 5px;
+  color: rgb(3, 3, 3);
+  height: 24px;
+  margin-bottom: 10px;
+}

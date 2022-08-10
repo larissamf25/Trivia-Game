@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import imgTrivia from '../imgs/trivia.png';
 import { fetchToken } from '../helpers/fetchAPI';
 import { actionPlaySave, actionResetStats } from '../redux/actions';
 import funcTrivia from '../helpers/funcTrivia';
@@ -55,8 +56,13 @@ class Login extends Component {
     const { disable, redirect, name, email } = this.state;
     const { history } = this.props;
     return (
-      <div>
-        <form>
+      <div className="login">
+        <form className="loginBox">
+          <img
+            className="imgTrivia"
+            alt="imgTrivia"
+            src={ imgTrivia }
+          />
           <input
             type="text"
             data-testid="input-player-name"
@@ -82,16 +88,14 @@ class Login extends Component {
             Play
           </button>
           { redirect && <Redirect to="/game" /> }
+          <button
+            type="button"
+            data-testid="btn-settings"
+            onClick={ () => history.push('/config') }
+          >
+            Configurações
+          </button>
         </form>
-
-        <button
-          type="button"
-          data-testid="btn-settings"
-          onClick={ () => history.push('/config') }
-        >
-          Configurações
-        </button>
-
       </div>
     );
   }
