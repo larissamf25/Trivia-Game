@@ -1,4 +1,3 @@
-import { describe } from "mocha";
 import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import App from '../App';
