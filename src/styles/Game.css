@@ -1,6 +1,6 @@
 /* stylelint-disable linebreaks */
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap') ;
 
 body {
   background-attachment: local;
@@ -13,7 +13,7 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  font-family: "Kanit", sans-serif;
+  font-family: Kanit , sans-serif;
   font-size: 30px;
   height: 600px;
   justify-content: center;
@@ -23,14 +23,14 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 700px;
+  justify-content: center;
 }
 
 .divTrivia button {
   background-color: rgba(255, 255, 255, 0.849);
   border-radius: 5px;
-  font-family: "Kanit", sans-serif;
+  font-family: Kanit , sans-serif;
   font-size: 20px;
   height: 40px;
   margin: 10px;
@@ -43,8 +43,8 @@ body {
   display: flex;
   gap: 100px;
   justify-content: center;
-  width: 100%;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .divQuestion {
