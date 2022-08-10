@@ -62,7 +62,7 @@ describe('Testando a página Game', () => {
 
     await waitFor(() => expect(fetch).toHaveBeenCalled());
     expect(history.location.pathname).toBe('/game');
-
+    
     // expect(history.location.pathname).toBe('/');
   })
 })
