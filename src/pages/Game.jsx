@@ -44,7 +44,7 @@ class Game extends Component {
       return <Redirect to="/feedback" />;
     }
     return (
-      <div>
+      <div className="gamePage">
         {
           (load) ? (
             <Load />

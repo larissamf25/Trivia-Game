@@ -1,10 +1,8 @@
-/* stylelint-disable linebreaks */
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap') ;
 
-/* @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap') ; */
 body {
   background-attachment: local;
-
-  /* background-image: url('../imgs/background.jpg'); */
+  background-image: url('../imgs/background.jpg');
   background-size: cover;
 }
 
@@ -57,6 +55,10 @@ body {
   margin-bottom: 10px;
 }
 
+.configBtn:hover {
+  background-color: rgba(131, 131, 131, 0.849);
+}
+
 .playBtn {
   background-color: rgba(255, 255, 255, 0.815);
   border: 2px solid rgba(222, 2, 112, 0.597);
@@ -69,4 +71,8 @@ body {
   height: 40px;
   margin-bottom: 10px;
   width: 98px;
+}
+
+.playBtn:hover {
+  background-color: rgba(131, 131, 131, 0.849);
 }

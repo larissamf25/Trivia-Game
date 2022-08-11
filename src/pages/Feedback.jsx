@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import '../styles/Feedback.css';
+import '../styles/Header.css';
 
 class Feedback extends Component {
 feedbackAnswers = () => {
@@ -18,38 +20,50 @@ render() {
   return (
     <div>
       <Header />
-      <h1>Feedback</h1>
-      <span
-        data-testid="feedback-text"
-      >
-        {this.feedbackAnswers()}
-      </span>
-      <span
-        data-testid="feedback-total-score"
-      >
-        { score }
-      </span>
-      <span
-        data-testid="feedback-total-question"
-      >
-        { assertions }
-      </span>
-      <Link to="/">
-        <button
-          data-testid="btn-play-again"
-          type="button"
-        >
-          Play Again
-        </button>
-      </Link>
-      <Link to="/ranking">
-        <button
-          data-testid="btn-ranking"
-          type="button"
-        >
-          Ranking
-        </button>
-      </Link>
+      <div className="feedbackPage">
+        <h1>Feedback</h1>
+        <div className="infoFeedback">
+          <span
+            data-testid="feedback-text"
+            className="phraseFeedback"
+          >
+            {this.feedbackAnswers()}
+          </span>
+          <span>Pontos:</span>
+          <span
+            data-testid="feedback-total-score"
+            className="phraseFeedback"
+          >
+            { score }
+          </span>
+          <span>Questões:</span>
+          <span
+            data-testid="feedback-total-question"
+          >
+            { assertions }
+          </span>
+        </div>
+        <div className="btnsFeedback">
+          <Link to="/">
+            <button
+              data-testid="btn-play-again"
+              type="button"
+              className="btnFeedback"
+            >
+              Play Again
+            </button>
+          </Link>
+          <Link to="/ranking">
+            <button
+              data-testid="btn-ranking"
+              type="button"
+              className="btnFeedback"
+            >
+              Ranking
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

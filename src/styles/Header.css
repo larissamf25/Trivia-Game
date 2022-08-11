@@ -1,17 +1,22 @@
-/* stylelint-disable linebreaks */
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap') ;
 
-/* @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap') ; */
 .divHeader {
   align-items: center;
+  background-color: rgba(164, 47, 123, 0.371);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 1px 1px 15px rgba(249, 249, 249, 0.598);
   color: white;
   display: flex;
   font-family: Kanit , sans-serif;
-  height: 80px;
+  height: 100px;
   justify-content: space-between;
   padding-right: 20px;
+  width: 1580px;
 }
 
 .imgHeader {
+  border-radius: 20px;
+  box-shadow: 2px 1px 5px rgb(177, 89, 157);
   height: 70px;
   margin-right: 20px;
 }
