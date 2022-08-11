@@ -6,7 +6,7 @@ import imgTrivia from '../imgs/trivia.png';
 import { fetchToken } from '../helpers/fetchAPI';
 import { actionPlaySave, actionResetStats } from '../redux/actions';
 import funcTrivia from '../helpers/funcTrivia';
-// import '../styles/Login.css';
+import '../styles/Login.css';
 
 class Login extends Component {
   constructor() {
