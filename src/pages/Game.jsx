@@ -6,7 +6,7 @@ import md5 from 'crypto-js/md5';
 import Header from '../components/Header';
 import Load from '../components/Load';
 import Quest from '../components/Quest';
-import '../styles/Game.css';
+// import '../styles/Game.css';
 
 class Game extends Component {
   componentDidMount() {
