@@ -3,7 +3,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap') ; */
 body {
   background-attachment: local;
-  background-image: url('../imgs/background.jpg');
+
+  /* background-image: url('../imgs/background.jpg'); */
   background-size: cover;
 }
 
