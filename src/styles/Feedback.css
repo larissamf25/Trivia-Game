@@ -24,6 +24,7 @@
   justify-content: center;
   margin: 100px 20px;
   padding: 40px;
+  width: 800px;
 }
 
 .btnFeedback {
@@ -45,4 +46,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.fullPage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

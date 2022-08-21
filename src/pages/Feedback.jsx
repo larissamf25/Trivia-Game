@@ -18,7 +18,7 @@ feedbackAnswers = () => {
 render() {
   const { score, assertions } = this.props;
   return (
-    <div>
+    <div className="fullPage">
       <Header />
       <div className="feedbackPage">
         <h1>Feedback</h1>
