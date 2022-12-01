@@ -28,4 +28,4 @@ https://user-images.githubusercontent.com/101740306/193129078-fc337ea4-0614-4311
 - Matheus Coelho (@matheuscoelhomalta)
 
 ## How to run the project: 👀
-  Git clone the repository, enter the folder, wun npm install and it's ready to navigate!! Enjoy the project 💚
+  Git clone the repository, enter the folder, run npm install and it's ready to navigate!! Enjoy the project 💚
